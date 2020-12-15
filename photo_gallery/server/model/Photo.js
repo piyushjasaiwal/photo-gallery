@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const photoSchema = mongoose.Schema({
+const PhotoSchema = mongoose.Schema({
     photo: {
         type:Buffer
     }
 });
 
-photoSchema.methods.toJSON = function() {
+PhotoSchema.methods.toJSON = function() {
     const result = this.toObject();
     delete result.photo;
     return result;
@@ -13,4 +13,4 @@ photoSchema.methods.toJSON = function() {
 
 const Photo = mongoose.model('photo', PhotoSchema);
 
-module.exports = photo;
+module.exports = Photo;
